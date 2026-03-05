@@ -1,9 +1,12 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import streamlit as st
 from scipy.stats import linregress
+
 from utils import add_features, base100, iqr_outliers, load_data, style_axis, yoy
 
 st.set_page_config(page_title="Energy Transition Dashboard", layout="wide")
@@ -34,9 +37,14 @@ COLORS = {
 }
 
 
+DATA_PATH = (
+    Path(__file__).resolve().parents[1] / "data/processed/processed_energy.parquet"
+)
+
+
 @st.cache_data
 def load_cached_data():
-    return load_data("../data/processed/processed_energy.parquet")
+    return load_data(DATA_PATH)
 
 
 # Sidebar

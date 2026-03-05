@@ -1,8 +1,6 @@
-numpy==2.4.2
-pandas==3.0.1
-pyarrow==23.0.1
-python-dateutil==2.9.0.post0
-six==1.17.0
+numpy==1.26.4
+pandas==2.2.3
+pyarrow==16.1.0
 streamlit==1.30.0
-matplotlib==3.10.8
+matplotlib==3.8.4
 seaborn==0.13.2

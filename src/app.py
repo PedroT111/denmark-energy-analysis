@@ -44,7 +44,7 @@ DATA_PATH = (
 
 @st.cache_data
 def load_cached_data():
-    return load_data(DATA_PATH)
+    return load_data(str(DATA_PATH))
 
 
 # Sidebar

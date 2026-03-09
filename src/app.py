@@ -75,9 +75,9 @@ st.sidebar.caption("Note: net_exchange > 0 = imports, net_exchange < 0 = exports
 
 sample_n = st.sidebar.slider("Scatter sample size", 2000, 80000, 30000, step=2000)
 
-st.title("⚡ Energy Transition Dashboard")
+st.sidebar.markdown("### Data Source")
 st.caption(
-    "Focus: structural transition (wind ↑, fossil ↓, CO₂ ↓), plus seasonality, drivers and extremes."
+    f"Analysis of Denmark’s electricity system using Energinet data ({start_year}–{end_year}). Focus: structural transition (wind ↑, fossil ↓, CO₂ ↓), seasonality and system drivers."
 )
 
 yearly = (

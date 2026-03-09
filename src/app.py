@@ -125,8 +125,8 @@ row2_cols = st.columns(3)
 
 # Latest year KPIs (or overall mean if only one year)
 kpi_specs = [
-    ("Renewables share (mean %)", "renewables_share_pct", "{:.1f}", True),
-    ("Wind share (mean %)", "wind_share_pct", "{:.1f}", True),
+    ("Renewables share of consumption (%)", "renewables_share_pct", "{:.1f}", True),
+    ("Wind share of consumption (%)", "wind_share_pct", "{:.1f}", True),
     ("CO₂ intensity (g/kWh)", "co2_perk_wh", "{:.0f}", True),
     ("Wind generation (MW)", "total_wind_power", "{:,.0f}", True),
     ("Fossil generation (MW)", "total_fossil", "{:,.0f}", True),

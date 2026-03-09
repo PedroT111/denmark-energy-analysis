@@ -97,7 +97,7 @@ yearly = (
 latest_year = int(yearly["year"].max()) if len(yearly) else None
 
 # KPIs
-st.subheader("Executive Overview")
+st.subheader(f"Executive Overview — Latest Year ({latest_year})")
 
 row1_cols = st.columns(3)
 row2_cols = st.columns(3)

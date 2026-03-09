@@ -52,20 +52,24 @@ st.sidebar.title("Settings")
 try:
     df_raw = load_cached_data()
     df = add_features(df_raw)
-    df = df[df.index > pd.Timestamp("2014-12-31", tz="UTC")]
+    df = df[df.index.year >= 2015]
 except Exception as e:
     st.error(f"Data loading/feature error: {e}")
     st.stop()
 
-# Date filter
-min_d, max_d = df.index.min() + pd.Timedelta(days=1), df.index.max()
-date_range = st.sidebar.date_input("Date range", value=(min_d.date(), max_d.date()))
-if isinstance(date_range, tuple) and len(date_range) == 2:
-    start = pd.Timestamp(date_range[0], tz="UTC")
-    end = pd.Timestamp(date_range[1], tz="UTC") + pd.Timedelta(days=1)
-    df_f = df.loc[(df.index >= start) & (df.index < end)]
-else:
-    df_f = df
+st.sidebar.markdown("## Filters")
+
+min_year = int(df["year"].min())
+max_year = int(df["year"].max())
+
+year_range = st.sidebar.slider(
+    "Select year range",
+    min_value=min_year,
+    max_value=max_year,
+    value=(min_year, max_year),
+)
+
+df_f = df[(df["year"] >= year_range[0]) & (df["year"] <= year_range[1])]
 
 st.sidebar.caption("Note: net_exchange > 0 = imports, net_exchange < 0 = exports.")
 

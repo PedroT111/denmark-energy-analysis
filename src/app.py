@@ -76,6 +76,23 @@ st.sidebar.caption("Note: net_exchange > 0 = imports, net_exchange < 0 = exports
 sample_n = st.sidebar.slider("Scatter sample size", 2000, 80000, 30000, step=2000)
 
 st.sidebar.markdown("### Data Source")
+st.sidebar.markdown(
+    """
+**Source:** Energinet Data Service  
+**Dataset:** Electricity system data (DK)  
+**Period:** 2015–2024  
+**Frequency:** Hourly data aggregated for analysis  
+**Data version:** FINAL  
+**Last available date:** 31 Dec 2024 
+
+https://www.energidataservice.dk/
+"""
+)
+
+start_year = int(df_f["year"].min())
+end_year = int(df_f["year"].max())
+
+st.title("⚡ Denmark Energy Transition Dashboard")
 st.caption(
     f"Analysis of Denmark’s electricity system using Energinet data ({start_year}–{end_year}). Focus: structural transition (wind ↑, fossil ↓, CO₂ ↓), seasonality and system drivers."
 )
